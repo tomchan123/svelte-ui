@@ -8,9 +8,22 @@
 	//#region Nav Menu
 	let isMenuShown: boolean = false;
 	function toggleMenu() {
-		//localhost:5173/bio
-		http: isMenuShown = !isMenuShown;
+		if (!isMenuShown) {
+			openMenu();
+		} else {
+			closeMenu();
+		}
 	}
+	function openMenu() {
+		isMenuShown = true;
+		document.body.addEventListener('click', closeMenu);
+	}
+	function closeMenu() {
+		isMenuShown = false;
+		document.body.removeEventListener('click', closeMenu);
+	}
+
+	let dropDownMenu: HTMLElement;
 	//#enderegion
 </script>
 
@@ -24,23 +37,27 @@
 
 		<!-- For small screen -->
 		<div class="flex md:hidden">
-			<button on:click={toggleMenu}>
+			<button on:click|stopPropagation={toggleMenu}>
 				<i class="fa-solid fa-bars text-white text-3xl px-4" />
 			</button>
 		</div>
 		{#if isMenuShown}
 			<div
+				bind:this={dropDownMenu}
 				class="md:hidden bg-zinc-700 flex flex-col absolute top-[4.5rem] items-center w-full py-4"
+				on:click|stopPropagation
 			>
 				{#each navBarItems as navBarItem}
 					<a
 						href={navBarItem.url}
+						on:click={closeMenu}
 						class="text-white font-bold text-lg text-center py-3 hover:bg-zinc-800 w-full"
 					>
 						{navBarItem.text}
 					</a>
 				{/each}
 				<a
+					on:click={closeMenu}
 					role="button"
 					href="/login"
 					class="bg-slate-500 hover:bg-slate-600 text-white px-4 py-3 text-lg font-extrabold mt-4 flex items-center space-x-2"
