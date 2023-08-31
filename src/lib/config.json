@@ -8,5 +8,27 @@
             "text": "Personal Bio",
             "url": "/bio"
         }
+    ],
+    "landing_social_items": [
+        {
+            "faIcon": "fa-brands fa-instagram",
+            "url": "https://www.instagram.com"
+        },
+        {
+            "faIcon": "fa-brands fa-facebook",
+            "url": "https://www.facebook.com"
+        },
+        {
+            "faIcon": "fa-brands fa-twitter",
+            "url": "https://www.x.com"
+        },
+        {
+            "faIcon": "fa-brands fa-github",
+            "url": "https://github.com/tomchan123"
+        },
+        {
+            "faIcon": "fa-brands fa-linkedin",
+            "url": "https://www.linkedin.com"
+        }
     ]
 }
