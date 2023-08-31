@@ -14,7 +14,7 @@
 </script>
 
 <div class="h-screen flex flex-col">
-	<nav class="flex bg-stone-950 justify-between items-center relative">
+	<nav class="flex bg-zinc-900 justify-between items-center relative">
 		<div class="p-4">
 			<a href="/">
 				<img alt="The website logo" src={logoWhiteUrl} width="110" />
@@ -29,12 +29,12 @@
 		</div>
 		{#if isMenuShown}
 			<div
-				class="md:hidden bg-stone-500 flex flex-col absolute top-[4.5rem] items-center w-full py-4"
+				class="md:hidden bg-zinc-700 flex flex-col absolute top-[4.5rem] items-center w-full py-4"
 			>
 				{#each navBarItems as navBarItem}
 					<a
 						href={navBarItem.url}
-						class="text-white font-bold text-lg text-center py-3 hover:bg-stone-700 w-full"
+						class="text-white font-bold text-lg text-center py-3 hover:bg-zinc-800 w-full"
 					>
 						{navBarItem.text}
 					</a>
@@ -42,7 +42,7 @@
 				<a
 					role="button"
 					href="/login"
-					class="bg-neutral-700 hover:bg-neutral-900 text-white px-4 py-3 text-lg font-extrabold mt-4 flex items-center space-x-2"
+					class="bg-slate-500 hover:bg-slate-600 text-white px-4 py-3 text-lg font-extrabold mt-4 flex items-center space-x-2"
 				>
 					<i class="fa-solid fa-right-to-bracket" />
 					<p>Portal Login</p>
@@ -62,7 +62,7 @@
 			<a
 				role="button"
 				href="/login"
-				class="bg-neutral-700 hover:bg-neutral-900 text-white px-4 py-3 text-lg font-extrabold flex items-center space-x-2"
+				class="bg-slate-500 hover:bg-slate-600 text-white px-4 py-3 text-lg font-extrabold flex items-center space-x-2"
 			>
 				<i class="fa-solid fa-right-to-bracket" />
 				<p>Portal Login</p>
