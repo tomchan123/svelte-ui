@@ -1,1 +1,78 @@
-<slot />
+<script lang="ts">
+	import logoWhiteUrl from '$lib/assets/logo-black.png';
+	import { getLandingNavBarItems } from '$src/lib/helper/config.helper';
+
+	const navBarItems = getLandingNavBarItems();
+
+	//#region Nav Menu
+	let isMenuShown: boolean = false;
+	function toggleMenu() {
+		//localhost:5173/bio
+		http: isMenuShown = !isMenuShown;
+	}
+	//#enderegion
+</script>
+
+<div class="h-screen flex flex-col">
+	<nav class="flex bg-stone-950 justify-between items-center relative">
+		<div class="p-4">
+			<a href="/">
+				<img alt="The website logo" src={logoWhiteUrl} width="110" />
+			</a>
+		</div>
+
+		<!-- For small screen -->
+		<div class="flex md:hidden">
+			<button on:click={toggleMenu}>
+				<i class="fa-solid fa-bars text-white text-3xl px-4" />
+			</button>
+		</div>
+		{#if isMenuShown}
+			<div
+				class="md:hidden bg-stone-500 flex flex-col absolute top-[4.5rem] items-center w-full py-4"
+			>
+				{#each navBarItems as navBarItem}
+					<a
+						href={navBarItem.url}
+						class="text-white font-bold text-lg text-center py-3 hover:bg-stone-700 w-full"
+					>
+						{navBarItem.text}
+					</a>
+				{/each}
+				<a
+					role="button"
+					href="/login"
+					class="bg-neutral-700 hover:bg-neutral-900 text-white px-4 py-3 text-lg font-extrabold mt-4 flex items-center space-x-2"
+				>
+					<i class="fa-solid fa-right-to-bracket" />
+					<p>Portal Login</p>
+				</a>
+			</div>
+		{/if}
+
+		<!-- Anything else -->
+		<div class="hidden md:flex grow items-center justify-between mx-4">
+			<div class="flex-initial">
+				{#each navBarItems as navBarItem}
+					<a href={navBarItem.url} class="text-white font-bold text-lg px-3">
+						{navBarItem.text}
+					</a>
+				{/each}
+			</div>
+			<a
+				role="button"
+				href="/login"
+				class="bg-neutral-700 hover:bg-neutral-900 text-white px-4 py-3 text-lg font-extrabold flex items-center space-x-2"
+			>
+				<i class="fa-solid fa-right-to-bracket" />
+				<p>Portal Login</p>
+			</a>
+		</div>
+	</nav>
+
+	<div class="grow">
+		<slot />
+	</div>
+
+	<footer>This is my footer</footer>
+</div>
