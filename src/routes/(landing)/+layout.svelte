@@ -39,7 +39,7 @@
 </script>
 
 <div class="h-screen flex flex-col">
-	<nav class="flex bg-zinc-900 justify-between items-center relative">
+	<nav class="flex bg-zinc-900 justify-between relative">
 		<div class="p-4">
 			<a href="/">
 				<img alt="The website logo" src={logoWhiteUrl} width="110" />
@@ -81,10 +81,13 @@
 		{/if}
 
 		<!-- Anything else -->
-		<div class="hidden md:flex grow items-center justify-between mx-4">
-			<div class="flex-initial">
+		<div class="hidden md:flex grow justify-between mx-4 items-center">
+			<div class="flex self-stretch">
 				{#each navBarItems as navBarItem}
-					<a href={navBarItem.url} class="text-white font-bold text-lg px-3">
+					<a
+						href={navBarItem.url}
+						class="text-white font-bold text-lg px-4 transition-colors hover:bg-white hover:text-zinc-900 text-center flex items-center"
+					>
 						{navBarItem.text}
 					</a>
 				{/each}
