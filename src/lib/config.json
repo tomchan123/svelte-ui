@@ -5,8 +5,8 @@
             "url": "/"
         },
         {
-            "text": "Personal Bio",
-            "url": "/bio"
+            "text": "About",
+            "url": "/about"
         }
     ],
     "landing_social_items": [
