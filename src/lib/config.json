@@ -1,0 +1,12 @@
+{
+    "landing_navbar_items": [
+        {
+            "text": "Home",
+            "url": "/"
+        },
+        {
+            "text": "Personal Bio",
+            "url": "/bio"
+        }
+    ]
+}
