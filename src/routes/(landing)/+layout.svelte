@@ -48,14 +48,18 @@
 
 		<!-- For small screen -->
 		<div class="flex md:hidden">
-			<button on:click={toggleMenu}>
-				<i class="fa-solid fa-bars text-white text-3xl px-4" />
+			<button
+				on:click={toggleMenu}
+				class="text-white text-3xl px-6 transition-transform ease-in-out duration-300"
+				style:transform={isMenuShown ? 'rotate(-180deg)' : ''}
+			>
+				<i class="fa-solid fa-caret-down" />
 			</button>
 		</div>
 		{#if isMenuShown}
 			<div
 				class="md:hidden bg-zinc-700 flex flex-col absolute top-[4.5rem] items-center w-full py-4"
-				transition:slide={{ axis: 'y' }}
+				transition:slide={{ axis: 'y', duration: 300 }}
 			>
 				{#each navBarItems as navBarItem}
 					<a
@@ -116,7 +120,7 @@
 					</a>
 				{/each}
 			</div>
-			<small class="text-xs"> Tom Tok Man Chan &copy; 2023 All rights reserved</small>
+			<small class="text-xs"> TMC &copy; 2023 All rights reserved</small>
 		</footer>
 	</div>
 </div>
