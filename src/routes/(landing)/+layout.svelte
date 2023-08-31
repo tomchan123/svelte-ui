@@ -1,8 +1,9 @@
 <script lang="ts">
 	import logoWhiteUrl from '$lib/assets/logo-black.png';
-	import { getLandingNavBarItems } from '$src/lib/helper/config.helper';
+	import { getLandingNavBarItems, getLandingSocialItems } from '$src/lib/helper/config.helper';
 
 	const navBarItems = getLandingNavBarItems();
+	const socialItems = getLandingSocialItems();
 
 	//#region Nav Menu
 	let isMenuShown: boolean = false;
@@ -74,5 +75,21 @@
 		<slot />
 	</div>
 
-	<footer>This is my footer</footer>
+	<footer class="bg-zinc-300 flex flex-col items-center text-gray-500 p-4 space-y-2 text-center">
+		<nav class="flex flex-row text-sm">
+			<a href="/about">About</a>
+			<div class="mx-2">&bull;</div>
+			<a href="/privacy">Privacy</a>
+			<div class="mx-2">&bull;</div>
+			<a href="/contact">Contact</a>
+		</nav>
+		<div class="flex space-x-2">
+			{#each socialItems as socialItem}
+				<a href={socialItem.url} class="text-lg">
+					<i class={socialItem.faIcon} />
+				</a>
+			{/each}
+		</div>
+		<small class="text-xs"> Tom Tok Man Chan &copy; 2023 All rights reserved</small>
+	</footer>
 </div>
