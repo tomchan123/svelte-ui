@@ -12,5 +12,13 @@ export default {
     },
   },
   plugins: [],
+  safelist: [
+    {
+      pattern: /col-span-[0-9]+/
+    },
+    {
+      pattern: /row-span-[0-9]+/
+    }
+  ]
 }
 
