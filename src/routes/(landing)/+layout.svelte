@@ -38,8 +38,8 @@
 	//#enderegion
 </script>
 
-<div class="h-screen flex flex-col">
-	<nav class="flex bg-zinc-900 justify-between relative">
+<div class="h-screen w-screen flex flex-col">
+	<nav class="flex bg-zinc-900 justify-between relative z-10">
 		<div class="p-4">
 			<a href="/">
 				<img alt="The website logo" src={logoWhiteUrl} width="110" />
