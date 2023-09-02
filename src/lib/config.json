@@ -30,5 +30,34 @@
             "faIcon": "fa-brands fa-linkedin",
             "url": "https://www.linkedin.com"
         }
+    ],
+    "landing_grid_items": [
+        {
+            "bgImgUrl": "/src/lib/assets/home-hero.png",
+            "url": "/about",
+            "title": "About me",
+            "content": "Tom is a Computer Science graduate from The University of Adelaide passionates about things like software development and data science.",
+            "orientation": "horizontal",
+            "colSpan": "col-span-2",
+            "rowSpan": "row-span-1"
+        },
+        {
+            "bgImgUrl": "/src/lib/assets/home-email.png",
+            "url": "/about",
+            "title": "Project Name Here",
+            "content": "Brief Intro of the project",
+            "orientation": "vertical",
+            "colSpan": "col-span-1",
+            "rowSpan": "row-span-1"
+        },
+        {
+            "bgImgUrl": "/src/lib/assets/home-hero.png",
+            "url": "/about",
+            "title": "About me",
+            "content": "Brief Intro of the project",
+            "orientation": "vertical",
+            "colSpan": "col-span-1",
+            "rowSpan": "row-span-1"
+        }
     ]
 }
