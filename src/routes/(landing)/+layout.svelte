@@ -72,7 +72,7 @@
 				<a
 					role="button"
 					href="/login"
-					class="bg-slate-500 hover:bg-slate-600 text-white px-4 py-2 text-lg font-extrabold mt-4 flex items-center space-x-2"
+					class="bg-slate-500 hover:bg-slate-600 text-white px-4 py-3 text-lg font-extrabold mt-4 flex items-center space-x-2"
 				>
 					<i class="fa-solid fa-right-to-bracket" />
 					<p>Portal Login</p>
