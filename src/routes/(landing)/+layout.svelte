@@ -38,11 +38,11 @@
 	//#enderegion
 </script>
 
-<div class="h-screen w-screen flex flex-col">
-	<nav class="flex bg-zinc-900 justify-between relative z-10">
+<div class="h-screen w-screen flex flex-col overflow-hidden">
+	<nav class="flex bg-zinc-900 justify-between relative z-10 h-16">
 		<div class="p-4">
 			<a href="/">
-				<img alt="The website logo" src={logoWhiteUrl} width="110" />
+				<img alt="The website logo" src={logoWhiteUrl} class="h-full" />
 			</a>
 		</div>
 
@@ -58,7 +58,7 @@
 		</div>
 		{#if isMenuShown}
 			<div
-				class="md:hidden bg-zinc-700 flex flex-col absolute top-[4.5rem] items-center w-full py-4"
+				class="md:hidden bg-zinc-700 flex flex-col absolute top-16 items-center w-full py-4"
 				transition:slide={{ axis: 'y', duration: 300 }}
 			>
 				{#each navBarItems as navBarItem}
@@ -72,7 +72,7 @@
 				<a
 					role="button"
 					href="/login"
-					class="bg-slate-500 hover:bg-slate-600 text-white px-4 py-3 text-lg font-extrabold mt-4 flex items-center space-x-2"
+					class="bg-slate-500 hover:bg-slate-600 text-white px-4 py-2 text-lg font-extrabold mt-4 flex items-center space-x-2"
 				>
 					<i class="fa-solid fa-right-to-bracket" />
 					<p>Portal Login</p>
@@ -95,7 +95,7 @@
 			<a
 				role="button"
 				href="/login"
-				class="bg-slate-500 hover:bg-slate-600 text-white px-4 py-3 text-lg font-extrabold flex items-center space-x-2"
+				class="bg-slate-500 hover:bg-slate-600 text-white px-4 py-2 text-lg font-extrabold flex items-center space-x-2"
 			>
 				<i class="fa-solid fa-right-to-bracket" />
 				<p>Portal Login</p>
@@ -103,7 +103,7 @@
 		</div>
 	</nav>
 
-	<div class="grow flex flex-col" bind:this={content}>
+	<div class="flex flex-col grow overflow-y-scroll" bind:this={content}>
 		<div class="grow">
 			<slot />
 		</div>
