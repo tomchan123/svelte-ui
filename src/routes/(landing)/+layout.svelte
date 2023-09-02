@@ -40,11 +40,9 @@
 
 <div class="h-screen w-screen flex flex-col overflow-hidden">
 	<nav class="flex bg-zinc-900 justify-between relative z-10 h-16">
-		<div class="p-4">
-			<a href="/">
-				<img alt="The website logo" src={logoWhiteUrl} class="h-full" />
-			</a>
-		</div>
+		<a href="/">
+			<img alt="The website logo" src={logoWhiteUrl} class="h-full p-3" />
+		</a>
 
 		<!-- For small screen -->
 		<div class="flex md:hidden">
