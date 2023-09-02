@@ -6,6 +6,9 @@ export default {
       sans: ['Inter', 'sans-serif'],
     },
     extend: {
+      width: {
+        '8/10': '80%',
+      }
     },
   },
   plugins: [],
