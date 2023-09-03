@@ -1,11 +1,73 @@
 <script lang="ts">
-	import sectionBackground from '$lib/assets/home-section-background.png';
 	import homeVideoPoster from '$lib/assets/home-video-screenshot.jpg';
 	import homeVideo from '$lib/assets/home-video.mp4';
 	import { getLandingGirdItems } from '$src/lib/helper/config.helper';
+	import { onMount, tick } from 'svelte';
 
 	let gridItems = getLandingGirdItems();
-	const sectionBackgroundClass = `bg-[url('${sectionBackground}')]`;
+
+	//#region Like Counter Section
+	let likeCountBar: HTMLElement;
+	let dislikeCountBar: HTMLElement;
+
+	let likeStatus: 'liked' | 'disliked' | null = null;
+	let likeCount: number = 0;
+	let dislikeCount: number = 0;
+
+	onMount(() => {
+		updateCountBar();
+	});
+
+	async function onLike() {
+		if (likeStatus == 'liked') {
+			likeStatus = null;
+			likeCount--;
+		} else {
+			if (likeStatus == 'disliked') {
+				dislikeCount--;
+			}
+			likeStatus = 'liked';
+			likeCount++;
+		}
+
+		await tick();
+		updateCountBar();
+	}
+
+	async function onDislike() {
+		if (likeStatus == 'disliked') {
+			likeStatus = null;
+			dislikeCount--;
+		} else {
+			if (likeStatus == 'liked') {
+				likeCount--;
+			}
+			likeStatus = 'disliked';
+			dislikeCount++;
+		}
+
+		await tick();
+		updateCountBar();
+	}
+
+	function updateCountBar() {
+		if (!!likeCountBar && !!dislikeCountBar) {
+			updateCountBarByElements(likeCountBar, dislikeCountBar);
+		}
+	}
+
+	function updateCountBarByElements(likeCountBar: HTMLElement, dislikeCountBar: HTMLElement) {
+		const totalCount = likeCount + dislikeCount;
+		if (totalCount == 0) {
+			return;
+		}
+
+		const likePercent = (likeCount / totalCount) * 100;
+
+		likeCountBar.style.width = `${likePercent}%`;
+		dislikeCountBar.style.width = `${100 - likePercent}%`;
+	}
+	//#endregion
 </script>
 
 <!-- Vidoe Background -->
@@ -36,7 +98,7 @@
 	</section>
 
 	<!-- Project Display Section-->
-	<section class="w-full p-10 bg-[url('/src/lib/assets/home-section-background.png')] bg-cover">
+	<section class={`w-full p-10 bg-[url('/src/lib/assets/home-section-background.png')] bg-cover`}>
 		<div
 			class="md:max-w-4xl md:grid md:grid-cols-2 md:grid-flow-row md:auto-rows-auto md:gap-8 md:space-y-0 flex flex-col space-y-8 mx-auto"
 		>
@@ -67,7 +129,41 @@
 	</section>
 
 	<!-- Like Counter Section-->
-	<section class="bg-white">
-		<h2>Do you like this home page?</h2>
+	<section class="bg-white p-8">
+		<h2 class="text-2xl text-center mb-8 font-bold">100% people like this page</h2>
+		<div class="flex justify-center flex-wrap space-x-4 space-y-2">
+			<div class="flex w-full flex-wrap justify-center h-12">
+				{#if likeCount + dislikeCount > 0}
+					<div class="flex w-full h-10">
+						<div bind:this={likeCountBar} class="bg-green-700 w-1/2" />
+						<div bind:this={dislikeCountBar} class="bg-red-700 w-1/2" />
+					</div>
+					<div class="flex justify-between w-full text-gray-500 text-sm">
+						<small><b class="font-bold">{likeCount}</b> votes</small>
+						<small><b class="font-bold">{dislikeCount}</b> votes</small>
+					</div>
+				{:else}
+					<div
+						class="w-full h-12 bg-gray-300 text-zinc-700 font-bold justify-center items-center flex"
+					>
+						No Data Yet
+					</div>
+				{/if}
+			</div>
+			<button
+				on:click={onLike}
+				class="text-green-500 hover:text-green-700 text-4xl p-4"
+				title="like"
+			>
+				<i class="fa-thumbs-up {likeStatus === 'liked' ? 'fa-solid' : 'fa-regular'} " />
+			</button>
+			<button
+				on:click={onDislike}
+				class="text-red-500 hover:text-red-700 text-4xl p-4"
+				title="dislike"
+			>
+				<i class="fa-thumbs-down {likeStatus === 'disliked' ? 'fa-solid' : 'fa-regular'} " />
+			</button>
+		</div>
 	</section>
 </div>
