@@ -4,14 +4,10 @@
 	import { getLandingNavBarItems, getLandingSocialItems } from '$src/lib/helper/config.helper';
 	import { slide } from 'svelte/transition';
 
-	//#region Page Data
-	const navBarItems = getLandingNavBarItems();
 	const socialItems = getLandingSocialItems();
-	//#endregion
+	const navBarItems = getLandingNavBarItems();
 
-	//#region Page Elements
 	let content: HTMLElement;
-	//#endregion
 
 	//#region Nav Menu
 	let isMenuShown = false;
