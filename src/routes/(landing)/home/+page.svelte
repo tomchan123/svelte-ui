@@ -4,6 +4,12 @@
 	import { getLandingGirdItems } from '$src/lib/helper/config.helper';
 	import { onMount, tick } from 'svelte';
 
+	export let data;
+
+	onMount(async () => {
+		updateCountBar();
+	});
+
 	let gridItems = getLandingGirdItems();
 
 	//#region Like Counter Section
@@ -11,23 +17,32 @@
 	let dislikeCountBar: HTMLElement;
 
 	let likeStatus: 'liked' | 'disliked' | null = null;
-	let likeCount: number = 0;
-	let dislikeCount: number = 0;
+	let likeCount: number = data.likeCounterData.likes;
+	let dislikeCount: number = data.likeCounterData.dislikes;
+	let likePercent = getLikePercent();
 
-	onMount(() => {
-		updateCountBar();
-	});
+	function getLikePercent(): number {
+		const totalCount = likeCount + dislikeCount;
+		if (totalCount == 0) {
+			return 0;
+		}
+
+		return (likeCount / totalCount) * 100;
+	}
 
 	async function onLike() {
 		if (likeStatus == 'liked') {
 			likeStatus = null;
 			likeCount--;
+			updateLikeCountRemote('unlike');
 		} else {
 			if (likeStatus == 'disliked') {
 				dislikeCount--;
+				updateLikeCountRemote('undislike');
 			}
 			likeStatus = 'liked';
 			likeCount++;
+			updateLikeCountRemote('like');
 		}
 
 		await tick();
@@ -38,12 +53,15 @@
 		if (likeStatus == 'disliked') {
 			likeStatus = null;
 			dislikeCount--;
+			updateLikeCountRemote('undislike');
 		} else {
 			if (likeStatus == 'liked') {
 				likeCount--;
+				updateLikeCountRemote('unlike');
 			}
 			likeStatus = 'disliked';
 			dislikeCount++;
+			updateLikeCountRemote('dislike');
 		}
 
 		await tick();
@@ -57,15 +75,19 @@
 	}
 
 	function updateCountBarByElements(likeCountBar: HTMLElement, dislikeCountBar: HTMLElement) {
-		const totalCount = likeCount + dislikeCount;
-		if (totalCount == 0) {
-			return;
-		}
-
-		const likePercent = (likeCount / totalCount) * 100;
+		likePercent = getLikePercent();
 
 		likeCountBar.style.width = `${likePercent}%`;
 		dislikeCountBar.style.width = `${100 - likePercent}%`;
+	}
+
+	async function updateLikeCountRemote(action: 'like' | 'dislike' | 'unlike' | 'undislike') {
+		fetch(`/data/like-counter?action=${action}`, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		});
 	}
 	//#endregion
 </script>
@@ -130,9 +152,13 @@
 
 	<!-- Like Counter Section-->
 	<section class="bg-white p-8">
-		<h2 class="text-2xl text-center mb-8 font-bold">100% people like this page</h2>
-		<div class="flex justify-center flex-wrap space-x-4 space-y-2">
-			<div class="flex w-full flex-wrap justify-center h-12">
+		<h2 class="text-2xl text-center mb-8 font-bold">
+			{likePercent.toFixed(1)}% people like this page
+		</h2>
+		<div
+			class="flex justify-center flex-wrap space-y-2 md:items-center md:space-x-0 md:space-y-0 md:flex-nowrap"
+		>
+			<div class="flex w-full flex-wrap justify-center h-12 md:order-2 md:max-w-3xl">
 				{#if likeCount + dislikeCount > 0}
 					<div class="flex w-full h-10">
 						<div bind:this={likeCountBar} class="bg-green-700 w-1/2" />
@@ -152,14 +178,14 @@
 			</div>
 			<button
 				on:click={onLike}
-				class="text-green-500 hover:text-green-700 text-4xl p-4"
+				class="text-green-500 hover:text-green-700 text-4xl p-4 md:order-1 mx-2"
 				title="like"
 			>
 				<i class="fa-thumbs-up {likeStatus === 'liked' ? 'fa-solid' : 'fa-regular'} " />
 			</button>
 			<button
 				on:click={onDislike}
-				class="text-red-500 hover:text-red-700 text-4xl p-4"
+				class="text-red-500 hover:text-red-700 text-4xl p-4 md:order-3 mx-2"
 				title="dislike"
 			>
 				<i class="fa-thumbs-down {likeStatus === 'disliked' ? 'fa-solid' : 'fa-regular'} " />
