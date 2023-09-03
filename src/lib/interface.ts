@@ -17,3 +17,8 @@ export interface LandingGridItem {
     rowSpan: string,
     colSpan: string,
 }
+
+export interface LikeCounter {
+    likes: number,
+    dislikes: number
+}
