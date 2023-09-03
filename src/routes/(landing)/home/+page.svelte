@@ -129,7 +129,8 @@
 					class={`flex flex-col bg-white drop-shadow-xl 
 						${gridItem.rowSpan} ${gridItem.colSpan} 
 						${gridItem.orientation === 'vertical' ? 'md:flex-col' : 'md:flex-row md:h-48'} 
-						md:hover:scale-[105%] transition-transform hover:bg-gray-200}`}
+						md:hover:scale-[105%] transition-transform hover:bg-gray-200}
+						hover:bg-slate-200`}
 					href={gridItem.url}
 				>
 					<div
