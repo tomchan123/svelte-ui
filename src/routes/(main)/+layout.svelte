@@ -20,11 +20,11 @@
 	}
 	function openMenu() {
 		isMenuShown = true;
-		content.addEventListener('click', closeMenu);
+		content?.addEventListener('click', closeMenu);
 	}
 	function closeMenu() {
 		isMenuShown = false;
-		content.removeEventListener('click', closeMenu);
+		content?.removeEventListener('click', closeMenu);
 	}
 
 	// close menu when navigating
