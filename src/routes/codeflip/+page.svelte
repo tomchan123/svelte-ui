@@ -3,20 +3,27 @@
 	import phoneBigImgUrl from '$lib/assets/codeflip/phone-big.png';
 	import phoneSmallImgUrl from '$lib/assets/codeflip/phone-small.png';
 	import phonesImgUrl from '$lib/assets/codeflip/phones.png';
-	import Step from './Step.svelte';
+	import Price from './Price.svelte';
+	import Title from './Title.svelte';
+	import { Step } from './index';
 </script>
 
 <div class="font-poppins bg-cf-beige">
 	<!-- Nav -->
 	<nav class="flex h-[10vh] justify-between items-center px-16 text-cf-black">
-		<h1 class="p-2 text-center font-bold text-xl"><a href="/">CodeFlip</a></h1>
+		<h1 class="p-2 text-center font-bold text-xl">
+			<a href="/">CodeFlip</a>
+		</h1>
 		<div class="flex space-x-10 text-center text-sm">
 			<h3 class="p-2"><a href="/codeflip#home">Home</a></h3>
 			<h3 class="p-2"><a href="/codeflip#home">Pricing</a></h3>
 			<h3 class="p-2"><a href="/codeflip#home">Reviews</a></h3>
 			<h3 class="p-2"><a href="/codeflip#home">FAQ</a></h3>
 		</div>
-		<button class="border w-24 h-8 rounded-2xl text-sm text-center border-cf-black">Login</button>
+		<button
+			class="border w-24 h-8 rounded-2xl text-sm text-center border-cf-black"
+			>Login</button
+		>
 	</nav>
 
 	<!-- Home -->
@@ -24,7 +31,11 @@
 		<h1 class="text-6xl/normal font-semibold text-center mx-auto relative z-10">
 			Open your coding <br /> world with a new app
 		</h1>
-		<img src={phonesImgUrl} alt="Two phones" class="h-[28rem] mx-auto relative bottom-10 z-20" />
+		<img
+			src={phonesImgUrl}
+			alt="Two phones"
+			class="h-[28rem] mx-auto relative bottom-10 z-20"
+		/>
 		<button
 			class="text-lg text-white bg-cf-black w-52 h-14 rounded-2xl mx-auto flex justify-center items-center space-x-2 relative z-20"
 		>
@@ -38,9 +49,10 @@
 		/>
 	</section>
 
-	<section>
-		<h2 class="text-4xl font-bold text-center mt-24 mb-14">How it works</h2>
-		<div class="flex justify-center space-x-8">
+	<!-- How it works -->
+	<section class="mt-24">
+		<Title>How it works</Title>
+		<div class="flex justify-center space-x-8 mt-14">
 			<Step
 				num={1}
 				title="Download the app"
@@ -56,7 +68,11 @@
 		</div>
 		<div class="flex justify-center space-x-8 my-4 relative z-10">
 			<img src={phoneSmallImgUrl} alt="Small phone" class="h-[24rem]" />
-			<img src={phoneBigImgUrl} alt="Bigger phone" class="h-[24rem] scale-[120%] origin-center" />
+			<img
+				src={phoneBigImgUrl}
+				alt="Bigger phone"
+				class="h-[24rem] scale-[120%] origin-center"
+			/>
 			<img src={phoneSmallImgUrl} alt="Small phone" class="h-[24rem]" />
 		</div>
 		<div class="flex justify-center space-x-8 relative">
@@ -72,6 +88,19 @@
 				content="Download the latest version of the coding app from any where around the world on any
             other devices."
 			/>
+		</div>
+	</section>
+
+	<!-- Pricing -->
+	<section class="mt-48">
+		<Title>Pricing</Title>
+		<p class="text-sm mx-auto text-center mt-2 mb-14">
+			Choose the subscription plan that is right for you
+		</p>
+		<div class="flex justify-center items-center space-x-8">
+			<Price title="Starter" price={9.99} />
+			<Price title="Advanced" price={19.99} isSpecial />
+			<Price title="Gold" price={29.99} />
 		</div>
 	</section>
 </div>
