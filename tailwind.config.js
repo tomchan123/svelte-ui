@@ -15,6 +15,7 @@ export default {
         'cf-beige': '#f4f4ec',
         'cf-black': '#0c1115',
         'cf-red': '#e84545',
+        'cf-purple': '#454CD3',
       }
     },
   },
