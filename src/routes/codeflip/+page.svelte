@@ -9,7 +9,7 @@
 <div class="font-poppins bg-cf-beige">
 	<!-- Nav -->
 	<nav class="flex h-[10vh] justify-between items-center px-16 text-cf-black">
-		<h1 class="p-2 text-center font-bold text-xl"><a href="/codeflip">CodeFlip</a></h1>
+		<h1 class="p-2 text-center font-bold text-xl"><a href="/">CodeFlip</a></h1>
 		<div class="flex space-x-10 text-center text-sm">
 			<h3 class="p-2"><a href="/codeflip#home">Home</a></h3>
 			<h3 class="p-2"><a href="/codeflip#home">Pricing</a></h3>
