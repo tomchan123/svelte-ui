@@ -54,8 +54,8 @@
 		<em class="text-3xl not-italic font-medium">${price.toFixed(2)}/mo</em>
 		<small>Billed annually</small>
 		<small>${(price + 3).toFixed(2)} per month, billed monthly</small>
-		<button class="{buttonClass} rounded-full text-center py-3 mt-6 mb-6"
-			>Buy</button
-		>
+		<button class="{buttonClass} rounded-full text-center py-3 mt-6 mb-6">
+			Buy
+		</button>
 	</div>
 </div>
