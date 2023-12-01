@@ -6,7 +6,9 @@
 	import { Footer, Price, Review, Step, Title } from './index';
 </script>
 
-<div class="font-poppins bg-cf-beige">
+<div
+	class="font-poppins bg-cf-beige bg-cf bg-[length:100vw_80%] bg-no-repeat h-full"
+>
 	<!-- Nav -->
 	<nav class="flex h-[10vh] justify-between items-center px-16 text-cf-black">
 		<h1 class="p-2 text-center font-bold text-xl">

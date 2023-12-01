@@ -19,6 +19,9 @@ export default {
         'cf-black': '#0c1115',
         'cf-red': '#e84545',
         'cf-purple': '#454CD3',
+      },
+      backgroundImage: {
+        'cf': 'url("/src/lib/assets/codeflip/bg.png")',
       }
     },
   },
