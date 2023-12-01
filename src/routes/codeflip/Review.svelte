@@ -3,25 +3,24 @@
 	import { onMount } from 'svelte';
 
 	let ratingEl: HTMLElement;
-	const maxRating = 5;
+	const MAX_RATING = 5;
 
-	function setRatingFill(el: HTMLElement, remainRating: number) {
-		const rate = (remainRating >= 1 ? 1 : remainRating) * 100;
+	function setRating() {
+		for (let i = 0; i < ratingEl.children.length; i++) {
+			const el = ratingEl.children.item(i) as HTMLElement;
+			const rate = (rating - i < 0 ? 0 : rating - i) * 100;
 
-		el.style.setProperty(
-			'background-image',
-			`linear-gradient(to right, var(--color-cf-red) ${rate}%, white ${
-				1 - rate
-			}%)`
-		);
+			el.style.setProperty(
+				'background-image',
+				`linear-gradient(to right, var(--color-cf-red) ${rate}%, white ${
+					1 - rate
+				}%)`
+			);
+		}
 	}
 
 	onMount(() => {
-		let remainRating = rating;
-		for (const starEl of ratingEl.children) {
-			setRatingFill(starEl as HTMLElement, remainRating);
-			remainRating = remainRating - 1 < 0 ? 0 : remainRating - 1;
-		}
+		setRating();
 	});
 
 	export let rating = 5.0;
@@ -54,11 +53,8 @@
 				bind:this={ratingEl}
 				class="flex border-l border-l-gray-300 text-sm space-x-2 px-2 py-1"
 			>
-				{#each Array(maxRating).keys() as num}
-					<i
-						class="fa-solid fa-star text-transparent bg-clip-text"
-						data-order={num}
-					/>
+				{#each Array(MAX_RATING).keys() as num}
+					<i class="fa-solid fa-star text-transparent bg-clip-text" />
 				{/each}
 			</div>
 		</div>
