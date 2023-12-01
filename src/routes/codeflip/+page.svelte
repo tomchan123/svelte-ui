@@ -32,7 +32,7 @@
 		<img
 			src={phonesImgUrl}
 			alt="Two phones"
-			class="h-[28rem] mx-auto relative bottom-10 z-20"
+			class="h-[50vh] mx-auto relative bottom-10 z-20"
 		/>
 		<button
 			class="text-lg text-white bg-cf-black w-52 h-14 rounded-2xl mx-auto flex justify-center items-center space-x-2 relative z-20"
