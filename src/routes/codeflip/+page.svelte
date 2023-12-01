@@ -3,9 +3,7 @@
 	import phoneBigImgUrl from '$lib/assets/codeflip/phone-big.png';
 	import phoneSmallImgUrl from '$lib/assets/codeflip/phone-small.png';
 	import phonesImgUrl from '$lib/assets/codeflip/phones.png';
-	import Price from './Price.svelte';
-	import Title from './Title.svelte';
-	import { Step } from './index';
+	import { Price, Review, Step, Title } from './index';
 </script>
 
 <div class="font-poppins bg-cf-beige">
@@ -78,13 +76,13 @@
 		<div class="flex justify-center space-x-8 relative">
 			<Step
 				num={3}
-				title="Download the app"
+				title="Customize the editor"
 				content="Download the latest version of the coding app from any where around the world on any
             other devices."
 			/>
 			<Step
 				num={4}
-				title="Take the test"
+				title="Coding"
 				content="Download the latest version of the coding app from any where around the world on any
             other devices."
 			/>
@@ -92,7 +90,7 @@
 	</section>
 
 	<!-- Pricing -->
-	<section class="mt-48">
+	<section class="mt-36">
 		<Title>Pricing</Title>
 		<p class="text-sm mx-auto text-center mt-2 mb-14">
 			Choose the subscription plan that is right for you
@@ -101,6 +99,18 @@
 			<Price title="Starter" price={9.99} />
 			<Price title="Advanced" price={19.99} isSpecial />
 			<Price title="Gold" price={29.99} />
+		</div>
+	</section>
+
+	<!-- Reviews -->
+	<section class="mt-36">
+		<Title>Reviews</Title>
+		<p class="text-sm mx-auto text-center mt-2 mb-10">
+			See what others have to say about the app
+		</p>
+		<div class="flex justify-center space-x-4">
+			<Review name="Tom Chan" role="IT Consultant" />
+			<Review name="Jack Cheung" role="Janitor" rating={4.8} />
 		</div>
 	</section>
 </div>
