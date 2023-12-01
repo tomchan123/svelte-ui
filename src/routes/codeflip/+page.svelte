@@ -7,7 +7,7 @@
 </script>
 
 <div
-	class="font-poppins bg-cf-beige bg-cf bg-[length:100vw_80%] bg-no-repeat h-full"
+	class="font-poppins bg-cf-beige bg-cf bg-[length:100vw_3000px] bg-no-repeat h-full"
 >
 	<!-- Nav -->
 	<nav class="flex h-[10vh] justify-between items-center px-16 text-cf-black">
