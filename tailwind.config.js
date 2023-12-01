@@ -10,6 +10,9 @@ export default {
       width: {
         '8/10': '80%',
       },
+      fontSize: {
+        '2xs': '0.65rem',
+      },
       colors: {
         'cf-orange': '#febf44',
         'cf-beige': '#f4f4ec',
