@@ -29,7 +29,7 @@
 </script>
 
 <div
-	class="flex-col justify-center p-7 w-[30rem] bg-white shadow-2xl rounded-3xl space-y-4"
+	class="flex-col justify-center p-7 bg-white shadow-2xl rounded-3xl space-y-4"
 >
 	<div class="flex justify-between">
 		<div class="flex items-center">

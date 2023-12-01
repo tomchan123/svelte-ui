@@ -4,7 +4,9 @@
 	export let content: string | undefined = undefined;
 </script>
 
-<article class="flex w-[30rem] bg-white rounded-2xl justify-items-between pr-8 drop-shadow-2xl">
+<article
+	class="flex bg-white rounded-2xl justify-items-between pr-8 drop-shadow-2xl"
+>
 	<h3
 		class="text-[6rem] from-cf-red to-cf-orange bg-gradient-to-r bg-clip-text text-center text-transparent w-44"
 	>

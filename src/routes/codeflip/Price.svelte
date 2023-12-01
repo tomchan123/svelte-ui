@@ -22,7 +22,7 @@
 </script>
 
 <div
-	class="rounded-3xl w-72 {heightClass} px-9 flex flex-col justify-between relative drop-shadow-2xl {bgColorClass} {textColorClass}"
+	class="rounded-3xl {heightClass} px-9 flex flex-col justify-between relative drop-shadow-2xl {bgColorClass} {textColorClass}"
 >
 	<!-- Only show show icons if it is sepcial-->
 	{#if isSpecial}
