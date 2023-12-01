@@ -3,17 +3,25 @@
 	import { onMount } from 'svelte';
 
 	let ratingEl: HTMLElement;
-	const maxRating = 5.0;
+	const maxRating = 5;
 
-	onMount(() => {
-		// set rating level
-		const ratingPercent = (rating / maxRating) * 100;
-		ratingEl.style.setProperty(
+	function setRatingFill(el: HTMLElement, remainRating: number) {
+		const rate = (remainRating >= 1 ? 1 : remainRating) * 100;
+
+		el.style.setProperty(
 			'background-image',
-			`linear-gradient(to right, var(--color-cf-red) ${ratingPercent}%, white ${
-				1 - ratingPercent
+			`linear-gradient(to right, var(--color-cf-red) ${rate}%, white ${
+				1 - rate
 			}%)`
 		);
+	}
+
+	onMount(() => {
+		let remainRating = rating;
+		for (const starEl of ratingEl.children) {
+			setRatingFill(starEl as HTMLElement, remainRating);
+			remainRating = remainRating - 1 < 0 ? 0 : remainRating - 1;
+		}
 	});
 
 	export let rating = 5.0;
@@ -44,10 +52,13 @@
 			<p class="text-sm mx-2">{rating.toFixed(1)}</p>
 			<div
 				bind:this={ratingEl}
-				class="flex border-l border-l-gray-300 text-sm space-x-2 px-2 py-1 bg-clip-text"
+				class="flex border-l border-l-gray-300 text-sm space-x-2 px-2 py-1"
 			>
 				{#each Array(maxRating).keys() as num}
-					<i class="fa-solid fa-star text-transparent" />
+					<i
+						class="fa-solid fa-star text-transparent bg-clip-text"
+						data-order={num}
+					/>
 				{/each}
 			</div>
 		</div>
