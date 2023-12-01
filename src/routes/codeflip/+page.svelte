@@ -1,10 +1,9 @@
 <script lang="ts">
-	import bgImgUrl from '$lib/assets/codeflip/bg-top.png';
 	import phoneBigImgUrl from '$lib/assets/codeflip/phone-big.png';
 	import phoneSmallImgUrl from '$lib/assets/codeflip/phone-small.png';
 	import phonesImgUrl from '$lib/assets/codeflip/phones.png';
-	import Accordion from './ Accordion.svelte';
-	import { Price, Review, Step, Title } from './index';
+	import Accordion from './Accordion.svelte';
+	import { Footer, Price, Review, Step, Title } from './index';
 </script>
 
 <div class="font-poppins bg-cf-beige">
@@ -44,11 +43,6 @@
 				<p>Get started</p>
 				<i class="fa-solid fa-link" />
 			</button>
-			<img
-				src={bgImgUrl}
-				alt="Background pattern"
-				class="w-[100vw] h-[80vh] bottom-0 absolute object-fill z-0"
-			/>
 		</section>
 
 		<!-- How it works -->
@@ -134,5 +128,10 @@
 				/>
 			</div>
 		</section>
+
+		<!-- Footer -->
+		<footer class="pt-36 pb-8 flex w-full justify-between">
+			<Footer />
+		</footer>
 	</div>
 </div>
