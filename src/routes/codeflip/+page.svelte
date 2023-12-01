@@ -110,7 +110,7 @@
 		</p>
 		<div class="flex justify-center space-x-4">
 			<Review name="Tom Chan" role="IT Consultant" />
-			<Review name="Jack Cheung" role="Janitor" rating={4.8} />
+			<Review name="Jack Cheung" role="Janitor" rating={4.4} />
 		</div>
 	</section>
 </div>

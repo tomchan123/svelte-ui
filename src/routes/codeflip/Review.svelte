@@ -1,7 +1,22 @@
 <script lang="ts">
 	import portraitImgUrl from '$lib/assets/codeflip/portrait.png';
+	import { onMount } from 'svelte';
 
-	export let rating: number = 5.0;
+	let ratingEl: HTMLElement;
+	const maxRating = 5.0;
+
+	onMount(() => {
+		// set rating level
+		const ratingPercent = (rating / maxRating) * 100;
+		ratingEl.style.setProperty(
+			'background-image',
+			`linear-gradient(to right, var(--color-cf-red) ${ratingPercent}%, white ${
+				1 - ratingPercent
+			}%)`
+		);
+	});
+
+	export let rating = 5.0;
 	export let name: string;
 	export let role: string;
 </script>
@@ -26,13 +41,14 @@
 			</div>
 		</div>
 		<div class="flex h-min items-center">
-			<p class="text-sm mx-2">5.0</p>
-			<div class="flex border-l border-l-gray-300 text-sm space-x-2 px-2 py-1">
-				<i class="fa-solid fa-star text-cf-red" />
-				<i class="fa-solid fa-star text-cf-red" />
-				<i class="fa-solid fa-star text-cf-red" />
-				<i class="fa-solid fa-star text-cf-red" />
-				<i class="fa-solid fa-star text-cf-red" />
+			<p class="text-sm mx-2">{rating.toFixed(1)}</p>
+			<div
+				bind:this={ratingEl}
+				class="flex border-l border-l-gray-300 text-sm space-x-2 px-2 py-1 bg-clip-text"
+			>
+				{#each Array(maxRating).keys() as num}
+					<i class="fa-solid fa-star text-transparent" />
+				{/each}
 			</div>
 		</div>
 	</div>
