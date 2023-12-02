@@ -40,46 +40,57 @@
 	];
 	//#endregion
 
-	const navItems = [
+	const navItems: NavItem[] = [
 		{
 			id: 'chome',
 			text: 'Home',
-			url: '/codeflip',
-			isVisible: false
+			url: '/codeflip'
 		},
 		{
 			id: 'chow',
 			text: 'How',
-			url: '/codeflip#how',
-			isVisible: false
+			url: '/codeflip#how'
 		},
 		{
 			id: 'cpricing',
 			text: 'Pricing',
-			url: '/codeflip#pricing',
-			isVisible: false
+			url: '/codeflip#pricing'
 		},
 		{
 			id: 'creviews',
 			text: 'Reviews',
-			url: '/codeflip#reviews',
-			isVisible: false
+			url: '/codeflip#reviews'
 		},
 		{
 			id: 'cfaq',
 			text: 'FAQ',
-			url: '/codeflip#faq',
-			isVisible: false
+			url: '/codeflip#faq'
 		}
 	];
 
+	interface NavItem {
+		id: string;
+		text: string;
+		url: string;
+	}
+
+	let queue: string[] = [];
 	onMount(() => {
 		const sectionObserver = new IntersectionObserver((entries) => {
 			for (const entry of entries) {
-				navItems.find((el) => el.id == entry.target.id)!.isVisible =
-					entry.isIntersecting;
+				const navItem = navItems.find((el) => el?.id === entry.target.id)!;
+				const inQueueIndex = queue.findIndex((el) => el == navItem.id);
+				if (entry.isIntersecting && inQueueIndex < 0) {
+					queue = [...queue, navItem.id];
+				} else if (!entry.isIntersecting && inQueueIndex >= 0) {
+					queue = [
+						...queue.slice(0, inQueueIndex),
+						...queue.slice(inQueueIndex + 1)
+					];
+				}
 			}
-			currentSectionId = navItems.find((el) => el.isVisible)?.id;
+			console.log(queue);
+			currentSectionId = queue.at(0);
 		});
 		sectionObserver.observe(homeEl);
 		sectionObserver.observe(howEl);
