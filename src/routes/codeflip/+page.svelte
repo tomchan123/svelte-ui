@@ -4,6 +4,32 @@
 	import phonesImgUrl from '$lib/assets/codeflip/phones.png';
 	import Accordion from './Accordion.svelte';
 	import { Footer, Price, Review, Step, Title } from './index';
+
+	//#region accordion
+	interface AccordionItem {
+		question: string;
+		isOpened: boolean;
+	}
+
+	const accordions: AccordionItem[] = [
+		{
+			question: 'What features are available in the app?',
+			isOpened: false
+		},
+		{
+			question: 'How do you start using GPT-4 inside the code editor?',
+			isOpened: false
+		},
+		{
+			question: 'Can I cancel the subscription after the free trial?',
+			isOpened: false
+		},
+		{
+			question: 'Does the app provide data privacy and protection?',
+			isOpened: false
+		}
+	];
+	//#endregion
 </script>
 
 <div
@@ -118,16 +144,22 @@
 		<section class="mt-36">
 			<Title>FAQ</Title>
 			<div class="flex flex-col mt-10 space-y-6 h-[32rem]">
-				<Accordion question="What features are available in the app?" />
-				<Accordion
-					question="How do you start using GPT-4 inside the code editor?"
-				/>
-				<Accordion
-					question="Can I cancel the subscription after the free trial?"
-				/>
-				<Accordion
-					question="Does the app provide data privacy and protection?"
-				/>
+				{#each accordions as accordion, i}
+					<Accordion
+						{...accordion}
+						on:toggle={(e) => {
+							if (!e.detail.oldValue && e.detail.newValue) {
+								for (let j = 0; j < accordions.length; j++) {
+									if (i != j) {
+										accordions[j].isOpened = false;
+									} else {
+										accordions[j].isOpened = true;
+									}
+								}
+							}
+						}}
+					/>
+				{/each}
 			</div>
 		</section>
 
