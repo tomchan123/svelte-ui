@@ -2,8 +2,13 @@
 	import phoneBigImgUrl from '$lib/assets/codeflip/phone-big.png';
 	import phoneSmallImgUrl from '$lib/assets/codeflip/phone-small.png';
 	import phonesImgUrl from '$lib/assets/codeflip/phones.png';
+	import { onMount } from 'svelte';
 	import Accordion from './Accordion.svelte';
 	import { Footer, Price, Review, Step, Title } from './index';
+	import Navbar from './navbar.svelte';
+
+	let navEl: HTMLElement;
+	let stickNavClasses: string = 'p-6';
 
 	//#region accordion
 	interface AccordionItem {
@@ -30,27 +35,40 @@
 		}
 	];
 	//#endregion
+
+	//#region navbar
+	function setUpNav(): () => void {
+		const navWatcher = document.createElement('div');
+		navWatcher.setAttribute('data-nav-watcher', '');
+		navEl.before(navWatcher);
+
+		const navObserver = new IntersectionObserver((entries) => {
+			stickNavClasses = entries[0].isIntersecting
+				? 'p-6'
+				: 'bg-white p-3  drop-shadow-sm';
+		});
+		navObserver.observe(navWatcher);
+
+		return () => {
+			navObserver.disconnect();
+		};
+	}
+	//#endregion
+
+	onMount(() => {
+		const navCleanUp = setUpNav();
+
+		return () => {
+			navCleanUp();
+		};
+	});
 </script>
 
 <div
-	class="font-poppins bg-cf-beige bg-cf bg-[length:100vw_3000px] bg-no-repeat h-full"
+	class="font-poppins bg-cf-beige bg-cf bg-[length:100vw_3000px] bg-no-repeat"
 >
 	<!-- Nav -->
-	<nav class="flex h-[10vh] justify-between items-center px-16 text-cf-black">
-		<h1 class="p-2 text-center font-bold text-xl">
-			<a href="/">CodeFlip</a>
-		</h1>
-		<div class="flex space-x-10 text-center text-sm">
-			<h3 class="p-2"><a href="/codeflip#home">Home</a></h3>
-			<h3 class="p-2"><a href="/codeflip#home">Pricing</a></h3>
-			<h3 class="p-2"><a href="/codeflip#home">Reviews</a></h3>
-			<h3 class="p-2"><a href="/codeflip#home">FAQ</a></h3>
-		</div>
-		<button
-			class="border w-24 h-8 rounded-2xl text-sm text-center border-cf-black"
-			>Login</button
-		>
-	</nav>
+	<Navbar />
 
 	<div class="w-[1000px] mx-auto">
 		<!-- Home -->
@@ -58,7 +76,7 @@
 			<h1
 				class="text-6xl/normal font-semibold text-center mx-auto relative z-10"
 			>
-				Open your coding <br /> world with a new app
+				Open your coding<br /> world with a new app
 			</h1>
 			<img
 				src={phonesImgUrl}
@@ -169,3 +187,6 @@
 		</footer>
 	</div>
 </div>
+
+<style>
+</style>
