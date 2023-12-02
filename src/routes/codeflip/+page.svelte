@@ -117,7 +117,7 @@
 		<!-- FAQ -->
 		<section class="mt-36">
 			<Title>FAQ</Title>
-			<div class="flex flex-col mt-10 space-y-6">
+			<div class="flex flex-col mt-10 space-y-6 h-[32rem]">
 				<Accordion question="What features are available in the app?" />
 				<Accordion
 					question="How do you start using GPT-4 inside the code editor?"
@@ -132,7 +132,7 @@
 		</section>
 
 		<!-- Footer -->
-		<footer class="pt-36 pb-8 flex w-full justify-between">
+		<footer class="pt-16 pb-8 flex w-full justify-between">
 			<Footer />
 		</footer>
 	</div>
