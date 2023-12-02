@@ -2,7 +2,6 @@
 	import phoneBigImgUrl from '$lib/assets/codeflip/phone-big.png';
 	import phoneSmallImgUrl from '$lib/assets/codeflip/phone-small.png';
 	import phonesImgUrl from '$lib/assets/codeflip/phones.png';
-	import { onMount } from 'svelte';
 	import Accordion from './Accordion.svelte';
 	import { Footer, Price, Review, Step, Title } from './index';
 	import Navbar from './navbar.svelte';
@@ -35,33 +34,6 @@
 		}
 	];
 	//#endregion
-
-	//#region navbar
-	function setUpNav(): () => void {
-		const navWatcher = document.createElement('div');
-		navWatcher.setAttribute('data-nav-watcher', '');
-		navEl.before(navWatcher);
-
-		const navObserver = new IntersectionObserver((entries) => {
-			stickNavClasses = entries[0].isIntersecting
-				? 'p-6'
-				: 'bg-white p-3  drop-shadow-sm';
-		});
-		navObserver.observe(navWatcher);
-
-		return () => {
-			navObserver.disconnect();
-		};
-	}
-	//#endregion
-
-	onMount(() => {
-		const navCleanUp = setUpNav();
-
-		return () => {
-			navCleanUp();
-		};
-	});
 </script>
 
 <div
