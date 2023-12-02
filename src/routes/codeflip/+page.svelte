@@ -78,10 +78,9 @@
 	onMount(() => {
 		const sectionObserver = new IntersectionObserver((entries) => {
 			for (const entry of entries) {
-				const navItem = navItems.find((el) => el?.id === entry.target.id)!;
-				const inQueueIndex = queue.findIndex((el) => el == navItem.id);
+				const inQueueIndex = queue.findIndex((el) => el == entry.target.id);
 				if (entry.isIntersecting && inQueueIndex < 0) {
-					queue = [...queue, navItem.id];
+					queue = [...queue, entry.target.id];
 				} else if (!entry.isIntersecting && inQueueIndex >= 0) {
 					queue = [
 						...queue.slice(0, inQueueIndex),
