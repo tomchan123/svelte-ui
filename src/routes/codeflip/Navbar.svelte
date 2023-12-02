@@ -39,6 +39,7 @@
 	</h1>
 	<div class="flex space-x-10 text-center text-sm">
 		<h3 class="p-2"><a href="/codeflip#home">Home</a></h3>
+		<h3 class="p-2"><a href="/codeflip#home">How</a></h3>
 		<h3 class="p-2"><a href="/codeflip#home">Pricing</a></h3>
 		<h3 class="p-2"><a href="/codeflip#home">Reviews</a></h3>
 		<h3 class="p-2"><a href="/codeflip#home">FAQ</a></h3>
