@@ -88,7 +88,6 @@
 					];
 				}
 			}
-			console.log(queue);
 			currentSectionId = queue.at(0);
 		});
 		sectionObserver.observe(homeEl);

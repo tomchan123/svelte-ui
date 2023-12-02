@@ -29,11 +29,6 @@
 		};
 	});
 
-	$: {
-		for (const item of items) {
-		}
-	}
-
 	export let items: any[];
 	export let currentSectionId: string | undefined;
 </script>
