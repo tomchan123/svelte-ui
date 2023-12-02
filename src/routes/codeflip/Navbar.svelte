@@ -28,6 +28,14 @@
 			cleanUp();
 		};
 	});
+
+	$: {
+		for (const item of items) {
+		}
+	}
+
+	export let items: any[];
+	export let currentSectionId: string | undefined;
 </script>
 
 <nav
@@ -38,11 +46,14 @@
 		<a href="/">CodeFlip</a>
 	</h1>
 	<div class="flex space-x-10 text-center text-sm">
-		<h3 class="p-2"><a href="/codeflip#home">Home</a></h3>
-		<h3 class="p-2"><a href="/codeflip#home">How</a></h3>
-		<h3 class="p-2"><a href="/codeflip#home">Pricing</a></h3>
-		<h3 class="p-2"><a href="/codeflip#home">Reviews</a></h3>
-		<h3 class="p-2"><a href="/codeflip#home">FAQ</a></h3>
+		{#each items as item}
+			<a
+				href={item.url}
+				class="p-2 transition-colors {item.id == currentSectionId
+					? 'border-b-2 border-cf-red'
+					: ''}"><h3>{item.text}</h3></a
+			>
+		{/each}
 	</div>
 	<button
 		class="border w-28 h-8 rounded-2xl text-sm text-center border-cf-black"

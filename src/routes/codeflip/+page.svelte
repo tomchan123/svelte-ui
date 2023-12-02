@@ -2,12 +2,17 @@
 	import phoneBigImgUrl from '$lib/assets/codeflip/phone-big.png';
 	import phoneSmallImgUrl from '$lib/assets/codeflip/phone-small.png';
 	import phonesImgUrl from '$lib/assets/codeflip/phones.png';
+	import { onMount } from 'svelte';
 	import Accordion from './Accordion.svelte';
 	import { Footer, Price, Review, Step, Title } from './index';
 	import Navbar from './navbar.svelte';
 
-	let navEl: HTMLElement;
-	let stickNavClasses: string = 'p-6';
+	let homeEl: HTMLElement;
+	let howEl: HTMLElement;
+	let pricingEl: HTMLElement;
+	let reviewsEl: HTMLElement;
+	let faqEl: HTMLElement;
+	let currentSectionId: string | undefined;
 
 	//#region accordion
 	interface AccordionItem {
@@ -34,17 +39,70 @@
 		}
 	];
 	//#endregion
+
+	const navItems = [
+		{
+			id: 'chome',
+			text: 'Home',
+			url: '/codeflip',
+			isVisible: false
+		},
+		{
+			id: 'chow',
+			text: 'How',
+			url: '/codeflip#how',
+			isVisible: false
+		},
+		{
+			id: 'cpricing',
+			text: 'Pricing',
+			url: '/codeflip#pricing',
+			isVisible: false
+		},
+		{
+			id: 'creviews',
+			text: 'Reviews',
+			url: '/codeflip#reviews',
+			isVisible: false
+		},
+		{
+			id: 'cfaq',
+			text: 'FAQ',
+			url: '/codeflip#faq',
+			isVisible: false
+		}
+	];
+
+	onMount(() => {
+		const sectionObserver = new IntersectionObserver((entries) => {
+			for (const entry of entries) {
+				navItems.find((el) => el.id == entry.target.id)!.isVisible =
+					entry.isIntersecting;
+			}
+			currentSectionId = navItems.find((el) => el.isVisible)?.id;
+		});
+		sectionObserver.observe(homeEl);
+		sectionObserver.observe(howEl);
+		sectionObserver.observe(pricingEl);
+		sectionObserver.observe(reviewsEl);
+		sectionObserver.observe(faqEl);
+
+		return () => {
+			sectionObserver.disconnect();
+		};
+	});
 </script>
 
 <div
 	class="font-poppins bg-cf-beige bg-cf bg-[length:100vw_3000px] bg-no-repeat"
 >
 	<!-- Nav -->
-	<Navbar />
+	<Navbar items={navItems} {currentSectionId} />
 
 	<div class="w-[1000px] mx-auto">
 		<!-- Home -->
-		<section class="h-[90vh]">
+		<div id="home" class="relative" />
+		<section id="chome" class="h-[90vh]" bind:this={homeEl}>
 			<h1
 				class="text-6xl/normal font-semibold text-center mx-auto relative z-10"
 			>
@@ -64,7 +122,8 @@
 		</section>
 
 		<!-- How it works -->
-		<section class="mt-24">
+		<div id="how" class="relative top-2" />
+		<section id="chow" class="mt-24" bind:this={howEl}>
 			<Title>How it works</Title>
 			<div class="flex justify-center space-x-8 mt-14">
 				<Step
@@ -106,7 +165,8 @@
 		</section>
 
 		<!-- Pricing -->
-		<section class="mt-36">
+		<div id="pricing" class="relative top-8" />
+		<section id="cpricing" class="mt-36" bind:this={pricingEl}>
 			<Title>Pricing</Title>
 			<p class="text-sm mx-auto text-center mt-2 mb-14">
 				Choose the subscription plan that is right for you
@@ -119,7 +179,8 @@
 		</section>
 
 		<!-- Reviews -->
-		<section class="mt-36">
+		<div id="reviews" class="relative top-8" />
+		<section id="creviews" class="mt-36" bind:this={reviewsEl}>
 			<Title>Reviews</Title>
 			<p class="text-sm mx-auto text-center mt-2 mb-10">
 				See what others have to say about the app
@@ -131,7 +192,8 @@
 		</section>
 
 		<!-- FAQ -->
-		<section class="mt-36">
+		<div id="faq" class="relative top-8" />
+		<section id="cfaq" class="mt-36" bind:this={faqEl}>
 			<Title>FAQ</Title>
 			<div class="flex flex-col mt-10 space-y-6 h-[32rem]">
 				{#each accordions as accordion, i}
