@@ -3,9 +3,8 @@
 	import phoneSmallImgUrl from '$lib/assets/codeflip/phone-small.png';
 	import phonesImgUrl from '$lib/assets/codeflip/phones.png';
 	import { onMount } from 'svelte';
-	import Accordion from './Accordion.svelte';
-	import { Footer, Price, Review, Step, Title } from './index';
-	import Navbar from './navbar.svelte';
+	import Navbar from './Navbar.svelte';
+	import { Accordion, Footer, Price, Review, Step, Title } from './index';
 
 	let homeEl: HTMLElement;
 	let howEl: HTMLElement;
@@ -230,6 +229,3 @@
 		</footer>
 	</div>
 </div>
-
-<style>
-</style>

@@ -43,11 +43,13 @@
 	<div class="flex space-x-10 text-center text-sm">
 		{#each items as item}
 			<a
+				id={item.id}
 				href={item.url}
 				class="p-2 transition-colors {item.id == currentSectionId
 					? 'border-b-2 border-cf-red'
-					: ''}"><h3>{item.text}</h3></a
-			>
+					: ''}"
+				><h3>{item.text}</h3>
+			</a>
 		{/each}
 	</div>
 	<button
