@@ -1,3 +1,7 @@
-<div class="border-black border-2 w-[210mm] h-[297mm] font-sans">
-	<h1>Tom Tokman Chan</h1>
-</div>
+<script lang="ts">
+	import * as Comp from './index';
+</script>
+
+<Comp.A4>
+	<h1 class="w-">Tom Tokman Chan</h1>
+</Comp.A4>
