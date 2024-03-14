@@ -11,6 +11,10 @@
 		{
 			"text": "CodeFlip",
 			"url": "/codeflip"
+		},
+		{
+			"text": "Resume",
+			"url": "/resume"
 		}
 	],
 	"landing_social_items": [
