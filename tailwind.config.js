@@ -5,6 +5,7 @@ export default {
     fontFamily: {
       sans: ['Inter', 'sans-serif'],
       poppins: ['Poppins', 'sans-serif'],
+      crimson: ['Crimson Text', 'serif'],
     },
     extend: {
       width: {
