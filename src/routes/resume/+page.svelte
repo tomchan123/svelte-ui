@@ -3,8 +3,8 @@
 </script>
 
 <Comp.A4>
-	<div class="mb-4">
-		<h1 class="font-bold text-4xl text-center">Tom Tokman Chan</h1>
+	<div class="mb-8">
+		<h1 class="font-bold text-4xl text-center">Tom Tok Man Chan</h1>
 		<div class="flex flex-row gap-2 items-center">
 			<div class="flex flex-row items-center gap-1">
 				<i class="fa-solid fa-phone text-2xs" />
@@ -36,7 +36,7 @@
 					A highly motivated Computer Science Graduate with professional
 					experience in web and software development. I am committed to
 					continuous learning and pushing beyond boundaries to achieve personal
-					and professional growth. As a collaborative team player, my goal is to
+					and professional growth. As a collaborative team player, I am able to
 					achieve the best possible outcome for the team collectively.
 				</p>
 			</section>
@@ -53,17 +53,17 @@
 						/>
 					</div>
 					<div class="leading-tight">
-						<h3 class="text-lg font-semibold leading-tight text-blue-950">
+						<h3 class="text-lg font-semibold leading-tight">
 							Bachelor of Computer Science | The University of Adelaide
 						</h3>
-						<p class="text leading-tight text-neutral-400">
+						<p class="text leading-tight text-neutral-500">
 							Feb 2022 - Dec 2022 • Conferred on 31/12/2022
 						</p>
 						<ul class="list-disc list-outside ml-4">
-							<li>Major in <span class="text-blue-500">Cybersecurity</span></li>
-							<li>GPA: <span class="text-blue-500">6.9 / 7.0</span></li>
+							<li>Major in <span class="text-blue-800">Cybersecurity</span></li>
+							<li>GPA: <span class="text-blue-800">6.9 / 7.0</span></li>
 							<li>
-								Awards: <span class="text-blue-500"
+								Awards: <span class="text-blue-800"
 									>The Executive Dean's Recognition of Academic Excellence</span
 								>
 								(2020 & 2021)
@@ -86,46 +86,42 @@
 						/>
 					</div>
 					<div class="leading-tight">
-						<h3 class="text-lg font-semibold leading-tight text-blue-950">
+						<h3 class="text-lg font-semibold leading-tight">
 							Software Developer | QueenyApp
 						</h3>
-						<p class="leading-tight text-neutral-400">Dec 2022 - Present</p>
-						<p class="leading-tight text-neutral-400">
+						<p class="leading-tight text-neutral-500">Dec 2022 - Present</p>
+						<p class="leading-tight text-neutral-500">
 							Hong Kong • Full-Time • Hybrid Remote
 						</p>
 						<ul class="list-disc list-outside ml-4">
 							<li>
-								<span class="font-semibold text-blue-500">
+								<span class="text-blue-800">
 									Developed Business Management System:
 								</span> Worked as a full-stack developer for a medium-sized web-based
 								system for managing contracts of a construction company using Angular,
 								ASP.NET, and SQL Server.
 							</li>
 							<li>
-								<span class="font-semibold text-blue-500"
-									>IT Vendor for Conference:</span
-								> Provide IT support such as configuring internet access and checking
-								in guests for an Ophthalmology Conference held in Malaysia.
+								<span class="text-blue-800">IT Vendor for Conference:</span> Provide
+								IT support such as configuring internet access and checking in guests
+								for an Ophthalmology Conference held in Malaysia.
 							</li>
 							<li>
-								<span class="font-semibold text-blue-500"
-									>Designed Desktop Application:</span
-								>
+								<span class="text-blue-800">Designed Desktop Application:</span>
 								Designed and developed an easy-to-use User Interface that allows
 								users to conveniently upload and view presentation files on Windows
 								computers using Flutter and Figma.
 							</li>
 							<li>
-								<span class="font-semibold text-blue-500">
+								<span class="text-blue-800">
 									Supported Legacy Purchasing System:
 								</span> Provided support and updated new features such as QR code
 								generation for a legacy puchasing system made using PHP and JavaScript.
 							</li>
 							<li>
-								<span class="font-semibold text-blue-500"
-									>Collaboarted In Small Team:</span
-								> Maintained a good communication with team members and stackholders
-								regarding issues with the software system using Jira.
+								<span class="text-blue-800">Collaboarted In Small Team:</span> Maintained
+								a good communication with team members and stakeholders regarding
+								issues with the software system using Jira.
 							</li>
 						</ul>
 					</div>
@@ -138,24 +134,23 @@
 						/>
 					</div>
 					<div class="leading-tight">
-						<h3 class="text-lg font-semibold leading-tight text-blue-950">
+						<h3 class="text-lg font-semibold leading-tight">
 							Account Assitant | Hong Kong Discount Hardware
 						</h3>
-						<p class="leading-tight text-neutral-400">Jan 2022 - Present</p>
-						<p class="leading-tight text-neutral-400">
+						<p class="leading-tight text-neutral-500">Jan 2022 - Present</p>
+						<p class="leading-tight text-neutral-500">
 							Adelaide, South Australia, Australia • Casual • On site
 						</p>
 						<ul class="list-disc list-outside ml-4">
 							<li>
-								<span class="font-semibold text-blue-500">
-									Learned New Skills:
-								</span> Demonstrated ability to learn and use professional accounting
-								software like MYOB from scratch.
+								<span class="text-blue-800"> Learned New Skills: </span> Demonstrated
+								ability to learn and use professional accounting software like MYOB
+								from scratch.
 							</li>
-							<!-- <li>
-								<span class="font-semibold">Resolved Client Conflicts:</span> Maintained
-								a good rapport resolved misunderstandings the with suppliers regularly.
-							</li> -->
+							<li>
+								<span class="text-blue-800">Resolved Client Conflicts:</span> Maintained
+								a good rapport with customers and suppliers.
+							</li>
 						</ul>
 					</div>
 				</div>
@@ -175,7 +170,7 @@
 						/>
 					</div>
 					<div class="leading-tight">
-						<h3 class="text-lg font-semibold leading-tight text-blue-950">
+						<h3 class="text-base leading-tight text-blue-800">
 							Covid-19 Tracing Web Application | Group Project
 						</h3>
 						<p class="leading-tight">
@@ -192,7 +187,7 @@
 						/>
 					</div>
 					<div class="leading-tight">
-						<h3 class="text-lg font-semibold leading-tight text-blue-950">
+						<h3 class="text-base leading-tight text-blue-800">
 							Analysing Trend on YouTube | Individual Project
 						</h3>
 						<p class="leading-tight">
@@ -210,12 +205,13 @@
 						/>
 					</div>
 					<div class="leading-tight">
-						<h3 class="text-lg font-semibold leading-tight text-blue-950">
+						<h3 class="text-base leading-tight text-blue-800">
 							Building AI Mailbot | Individual Project
 						</h3>
 						<p class="leading-tight">
-							Developed a mailbot that can automatically fetch news, summarise
-							the content using LLM and send to subscribed users.
+							Developed a mailbot using Golang that can automatically fetch
+							news, summarise the content using LLM and send to subscribed
+							users.
 						</p>
 					</div>
 				</div>
@@ -227,7 +223,7 @@
 						/>
 					</div>
 					<div class="leading-tight">
-						<h3 class="text-lg font-semibold leading-tight text-blue-950">
+						<h3 class="text-base leading-tight text-blue-800">
 							Miscellaneous Projects
 						</h3>
 						<ul class="leading-tight list-outside ml-4 list-disc">
@@ -239,9 +235,10 @@
 								Built a simple Multilayer Perceptron for recognising handwritten
 								digits from scratch.
 							</li>
-							<!-- <li>
-								Built an assortment of Web UIs using tailwindcss and svelte
-							</li> -->
+							<li>
+								Built an assortment of beuatifully designed Web UIs using
+								tailwindcss and Svelte
+							</li>
 						</ul>
 					</div>
 				</div>
@@ -271,24 +268,88 @@
 					<p>Wynn Vale SA, Australia</p>
 				</div>
 			</div>
-			<div class="flex flex-col items-center mb-4">
+			<div class="flex flex-col items-center mb-4 gap-y-1">
 				<h2 class="mb-1 text-center text-lg font-semibold">Skills</h2>
-				<p class="text-sm text-center">
+				<div class="flex flex-row justify-center w-full gap-2 items-center">
+					<p class="text-sm w-1/2 text-right">JS/TS<br />(Angular, Vue)</p>
+					<div class="w-1/2 bg-neutral-200 h-2 relative">
+						<div class="w-[80%] bg-neutral-400 h-full" />
+						<small class="text-transparent absolute">Advanced</small>
+					</div>
+				</div>
+				<div class="flex flex-row justify-center w-full gap-2 items-center">
+					<p class="text-sm w-1/2 text-right">C#<br />(ASP.NET)</p>
+					<div class="w-1/2 bg-neutral-200 h-2 relative">
+						<div class="w-[70%] bg-neutral-400 h-full" />
+						<small class="text-transparent absolute">Advanced</small>
+					</div>
+				</div>
+				<div class="flex flex-row justify-center w-full gap-2 items-center">
+					<p class="text-sm w-1/2 text-right">Bash/Shell</p>
+					<div class="w-1/2 bg-neutral-200 h-2 relative">
+						<div class="w-[70%] bg-neutral-400 h-full" />
+						<small class="text-transparent absolute">Advanced</small>
+					</div>
+				</div>
+				<div class="flex flex-row justify-center w-full gap-2 items-center">
+					<p class="text-sm w-1/2 text-right">SQL</p>
+					<div class="w-1/2 bg-neutral-200 h-2 relative">
+						<div class="w-[70%] bg-neutral-400 h-full" />
+						<small class="text-transparent absolute">Advanced</small>
+					</div>
+				</div>
+				<div class="flex flex-row justify-center w-full gap-2 items-center">
+					<p class="text-sm w-1/2 text-right">Flutter</p>
+					<div class="w-1/2 bg-neutral-200 h-2 relative">
+						<div class="w-[60%] bg-neutral-400 h-full" />
+						<small class="text-transparent absolute">Medium</small>
+					</div>
+				</div>
+				<div class="flex flex-row justify-center w-full gap-2 items-center">
+					<p class="text-sm w-1/2 text-right">Python</p>
+					<div class="w-1/2 bg-neutral-200 h-2 relative">
+						<div class="w-[60%] bg-neutral-400 h-full" />
+						<small class="text-transparent absolute">Medium</small>
+					</div>
+				</div>
+				<div class="flex flex-row justify-center w-full gap-2 items-center">
+					<p class="text-sm w-1/2 text-right">C/C++</p>
+					<div class="w-1/2 bg-neutral-200 h-2 relative">
+						<div class="w-[50%] bg-neutral-400 h-full" />
+						<small class="text-transparent absolute">Medium</small>
+					</div>
+				</div>
+				<div class="flex flex-row justify-center w-full gap-2 items-center">
+					<p class="text-sm w-1/2 text-right">Docker/K8s</p>
+					<div class="w-1/2 bg-neutral-200 h-2 relative">
+						<div class="w-[45%] bg-neutral-400 h-full" />
+						<small class="text-transparent absolute">Medium</small>
+					</div>
+				</div>
+				<div class="flex flex-row justify-center w-full gap-2 items-center">
+					<p class="text-sm w-1/2 text-right">Golang</p>
+					<div class="w-1/2 bg-neutral-200 h-2 relative">
+						<div class="w-[20%] bg-neutral-400 h-full" />
+						<small class="text-transparent absolute">Basic</small>
+					</div>
+				</div>
+
+				<!-- <p class="text-sm text-center">
 					C++/C
 					<br />Python
-					<br />JavaScript
+					<br />JavaScript (Angular, Vue)
 					<br />C# (ASP.NET)
 					<br />Flutter
-					<br />Node.js (Angular, Vue)
 					<br />SQL Database
 					<br />Shell/Bash
-				</p>
+					<br />Docker
+				</p> -->
 			</div>
 			<div class="flex flex-col items-center mb-4">
 				<h2 class="mb-1 text-center text-lg font-semibold">Languages</h2>
 				<p class="text-center text-sm">English (Advanced)</p>
 				<p class="text-center text-sm">Cantonese (Native)</p>
-				<p class="text-center text-sm">Mandarin (Advanced)</p>
+				<p class="text-center text-sm">Mandarin (Native)</p>
 				<p class="text-center text-sm">Spanish (Beginner)</p>
 			</div>
 			<div class="flex flex-col items-center mb-4">
@@ -299,12 +360,12 @@
 				<h2 class="mb-1 text-center text-lg font-semibold">Memberships</h2>
 				<p class="text-center text-sm">ACS (2022-2023)</p>
 			</div>
-			<div class="flex flex-col items-center">
+			<!-- <div class="flex flex-col items-center">
 				<h2 class="mb-1 text-center text-lg font-semibold">Hobbies</h2>
 				<p class="text-center text-sm">Badminton</p>
 				<p class="text-center text-sm">CTF Competitions</p>
 				<p class="text-center text-sm">Hack the box</p>
-			</div>
+			</div> -->
 		</aside>
 	</div>
 </Comp.A4>
